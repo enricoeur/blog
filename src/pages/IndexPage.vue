@@ -7,8 +7,8 @@
       size="80px"
       show-value
       :thickness="0.13"
-      color="primary"
-      track-color="dark"
+      color="red"
+      track-color="black"
     >
       <q-avatar size="75px">
         <img alt="Quasar logo" src="~assets/quasar-logo-inner.svg" />
@@ -54,6 +54,6 @@ import { ref } from 'vue';
 
 const count = ref(0);
 
-const min = -5;
-const max = 5;
+const min = -10;
+const max = 10;
 </script>

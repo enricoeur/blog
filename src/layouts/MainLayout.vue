@@ -1,25 +1,43 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated class="bg-red-14">
       <q-toolbar>
         <q-btn
           flat
-          dense
           round
+          dense
           icon="menu"
-          aria-label="Menu"
+          class="q-mr-sm"
           @click="toggleLeftDrawer"
         />
+        <q-avatar>
+          <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+        </q-avatar>
 
-        <q-toolbar-title>Quasar CLI with Vite App</q-toolbar-title>
+        <q-toolbar-title>Blog v{{ $q.version }}</q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn flat round dense icon="login" />
+        <!-- AVATAR AFTER LOGIN -->
+        <!--
+        <q-item clickable v-ripple>
+          <q-avatar @click="toggleLeftDrawer">
+            <img src="https://cdn.quasar.dev/img/avatar.png" />
+          </q-avatar>
+        </q-item>
+        -->
       </q-toolbar>
+
+      <q-tabs v-model="tab">
+        <q-tab name="categories" label="CATEGORIES" />
+        <q-tab name="tags" label="TAGS" />
+        <q-tab name="top-list" label="TOP LIST" />
+        <q-tab name="authors" label="AUTHORS" />
+      </q-tabs>
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label header>Essential Links</q-item-label>
+        <q-item-label header>Blog Menu</q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
